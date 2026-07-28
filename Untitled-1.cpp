@@ -1,13 +1,20 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <stack>
 using namespace std;
+
 int main()
 {
-  vector<int> v = {1, 2, 3, 4, 5};
-  reverse(v.begin(), v.end());
-  for (auto x : v)
+  stack<int> s;
+  s.push(10);
+  s.push(20);
+  s.push(30);
+  while (!s.empty())
   {
-    cout << x << " ";
+    cout << s.top() << " ";
+    s.pop();
   }
+  cout << endl;
+  s.push(10);
+
+  return 0;
 }
