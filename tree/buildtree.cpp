@@ -13,14 +13,45 @@ class TreeNode {
       }
 
 };
-void preorder(TreeNode*root){
+void inorder(TreeNode*root){
   if(root == nullptr){
     return ;
   }
+   inorder(root->left);
+   cout<<root->data<<" ";
+   cout<<endl;
+   inorder(root->right);
+}
+
+void preorder(TreeNode*root){
+  if(root  == nullptr){
+    return ;
+  }
+   cout<<root->data<<" ";
+   cout<<endl;
    preorder(root->left);
-   cout<<root->data<<endl;
    preorder(root->right);
 }
+void postorder(TreeNode*root){
+  if(root == nullptr){
+    return ;
+  }
+  postorder(root->left);
+  postorder(root->right);
+  cout<<root->data<<" ";
+  cout<<endl;
+}
+int height(TreeNode*root){
+  if(root == nullptr){
+    return 0;
+  }
+  int left=height(root->left);
+  int right=height(root->right);
+  return max(left+1,right+1);
+}
+
+
+
 
 int main(){
     TreeNode*root=new TreeNode(1);
@@ -32,7 +63,9 @@ int main(){
         root->right->right=new TreeNode(7);
 
         preorder(root);
-
+        inorder(root);
+        postorder(root);
+        cout<<"height:"<<height(root)<<endl;
       return 0;
     
 }
