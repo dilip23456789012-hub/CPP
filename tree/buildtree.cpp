@@ -49,6 +49,8 @@ int height(TreeNode*root){
   int right=height(root->right);
   return max(left+1,right+1);
 }
+
+
  int countTreeNode(TreeNode*root){
      if(root == nullptr){
       return 0 ;
@@ -87,6 +89,7 @@ bool identicalTree(TreeNode*p,TreeNode*q){
  
  return identicalTree(p->left,q->left)&&identicalTree(p->right,q->right);
 }
+ 
 int main(){
     TreeNode*root=new TreeNode(1);
        root->left=new TreeNode(2);
@@ -104,16 +107,12 @@ int main(){
         p->right->left=new TreeNode(6);
         p->right->right=new TreeNode(7);
         TreeNode*q=new TreeNode(1);
-       q->left=new TreeNode(2);
-       q->right=new TreeNode(3);
-        q->left->left=new TreeNode(4);
-        q->left->right=new TreeNode(5);
-        q->right->left=new TreeNode(6);
-        q->right->right=new TreeNode(7);
-
-
-
-
+          q->left=new TreeNode(2);
+          q->right=new TreeNode(3);
+          q->left->left=new TreeNode(4);
+          q->left->right=new TreeNode(5);
+          q->right->left=new TreeNode(6);
+          q->right->right=new TreeNode(7);
         preorder(root);
         inorder(root);
         postorder(root);
